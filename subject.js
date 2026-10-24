@@ -1,0 +1,3 @@
+import {ready,$,api,esc,header,empty} from './shared.js';
+await ready('Study');const slug=new URLSearchParams(location.search).get('subject')||'',{units}=await api('/api/curry');const selected=units.filter(u=>u.subject_slug===slug);
+$('#main').innerHTML=header('Study','Your subject workspace.','<a class="button ghost" href="curry.html">Back to Curry</a>')+(selected.length?`<div class="stack">${selected.map(u=>`<section class="panel"><p class="eyebrow">${esc(u.exam_name)}</p><h2>${esc(u.topic_title)}</h2><p class="muted">Difficulty ${u.difficulty_level}/5 · ${u.estimated_hours} h · ${esc(u.status.replaceAll('_',' '))}</p><a class="small button ghost" href="taskitator.html">Open focus tasks</a></section>`).join('')}</div>`:empty('No units linked to this subject.'));

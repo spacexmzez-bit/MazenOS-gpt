@@ -1,0 +1,16 @@
+{
+  "name": "mazenos",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "test": "node --test mazenos.test.js",
+    "check": "node check.mjs",
+    "build": "node build.mjs",
+    "deploy": "npx --yes wrangler@4 deploy",
+    "dev": "npx --yes wrangler@4 dev"
+  }
+}
